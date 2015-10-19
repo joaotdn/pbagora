@@ -1,0 +1,171 @@
+//placeholders
+%transition {
+  @include transition-property(all);
+  @include transition-duration(.3s);
+  @include transition-timing-function(linear);
+}
+%full-height {
+  height: 100%;
+}
+%mask-common {
+  visibility: hidden;
+  opacity: 0;
+  @extend .small-12;
+  @extend %full-height;
+}
+
+//Cores
+.secondary {
+  color: $secondary-color;
+}
+.primary {
+  color: $primary-color;
+}
+.white {
+  color: #fff;
+}
+
+//Caixa
+.text-up {
+  text-transform: uppercase;
+}
+
+//Peso
+.font-light {
+  font-weight: 300;
+}
+.font-regular {
+  font-weight: 400;
+}
+.font-bold {
+  font-weight: 500;
+}
+.font-black {
+  font-weight: 700;
+}
+
+//Altura de linhas
+.lh-1 {
+  line-height: 1;
+}
+
+//tamanho da fonte
+.font-normal {
+  font-size: rem-calc(14);
+}
+.font-small {
+  font-size: rem-calc(12);
+}
+.font-large {
+  font-size: rem-calc(18);
+}
+.font-xlarge {
+  font-size: rem-calc(20);
+}
+
+//Backgrounds
+.bg-menu {
+  background-color: $bg-menu;
+}
+.bg-menu-light {
+  background-color: $bg-menu-light;
+}
+.bg-cover {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//Margens
+.no-margin {
+  margin: 0 !important;
+}
+%divides {
+  @extend .small-12;
+  @extend .left;
+}
+.divide-5 {
+  @extend %divides;
+  margin-bottom: rem-calc(5);
+}
+.divide-10 {
+  @extend %divides;
+  margin-bottom: rem-calc(10);
+}
+.divide-20 {
+  @extend %divides;
+  margin-bottom: rem-calc(20);
+}
+
+//containers
+.section-block {
+  padding-top: rem-calc(20);
+  padding-bottom: rem-calc(20);
+}
+
+//Comportameyos
+.d-table {
+  display: table;
+}
+.d-table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+.d-block {
+  display: block;
+}
+.d-iblock {
+  display: inline-block;
+}
+.abs {
+  position: absolute;
+}
+.rel {
+  position: relative;
+}
+.hidden {
+  display: none !important;
+}
+
+//Mascaras
+#mask-white {
+  @extend %mask-common;
+  @extend %transition;
+  position: fixed;
+  left: 0;
+  top: rem-calc(91);
+  background-color: rgba(#fff, .9);
+  z-index: 9999999;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+//Cabeçalhos
+.post-tag {
+  @extend .text-up;
+  font-weight: 700;
+  @extend .primary;
+  @extend .font-normal;
+}
+
+@media #{$medium-down} {
+  #mask-white {
+    display: none;
+  }
+  .post-tag {
+    font-size: rem-calc(12);
+  }
+}
+
+//Miscelanea
+
+//linha
+.h-line {
+  @extend .small-12;
+  @extend .left;
+  border-bottom: 1px solid #eaeaea;
+}

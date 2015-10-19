@@ -1,171 +1,364 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="pt-br" ng-app="PBAapp">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
+    <title>PB Agora</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="style.css" />
+
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
   <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
-      </div>
-    </div>
-    
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-          <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-          <p>Once you've exhausted the fun in this document, you should check out:</p>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://foundation.zurb.com/forum">Foundation Forum</a><br />Join the Foundation community to ask a question or show off your knowlege.</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 medium-push-2 columns">
-              <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-            </div>
-            <div class="large-4 medium-4 medium-pull-2 columns">
-              <p><a href="https://twitter.com/ZURBfoundation">@zurbfoundation</a><br />Ping us on Twitter if you have questions. When you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-            </div>        
-          </div>
-        </div>
-      </div>
-    </div>
+      <div id="wrapper" class="small-12 left">
 
-    <div class="row">
-      <div class="large-8 medium-8 columns">
-        <h5>Here&rsquo;s your basic grid:</h5>
-        <!-- Grid Example -->
+          <div id="menu-offcanvas">
+              <header class="small-12 left">
+                <h4 class="text-up primary no-margin lh-1 small-12 left">
+                    <span class="left"><strong>PB</strong>Agora</span>
+                    <span class="right icon-close primary close-offcanvas"></span>
+                </h4>
+              </header>
 
-        <div class="row">
-          <div class="large-12 columns">
-            <div class="callout panel">
-              <p><strong>This is a twelve column section in a row.</strong> Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-            </div>
+              <form id="mobile-search" method="get">
+                  <input type="text" name="s" id="s" placeholder="Buscar" class="small-12 left"/>
+                  <span class="icon-search primary abs"></span>
+              </form>
+
+              <nav id="mo-menu" class="small-12 left"></nav>
           </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-        </div>
-        
-        <hr />
-                
-        <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-        <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-12.columns" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label>Input Label</label>
-                <div class="small-9 columns">
-                  <input type="text" placeholder="small-9.columns" />
+          <a href="#" class="close-offcanvas"></a>
+
+          <header id="header" class="small-12">
+            <div class="row rel">
+
+              <div class="d-table-cell small-12">
+                <div class="small-12 left">
+
+                  <figure class="small-12 large-2 small-text-center large-text-left columns logo">
+                    <a href="#" class="left d-iblock icon-menu open-offcanvas"></a>
+
+                    <a href="#" title="Página principal" class="less-opacity">
+                      <img src="images/logo.png" alt=""/>
+                    </a>
+                  </figure>
+
+                  <nav id="main-menu" class="small-8 columns end show-for-large-up" role="navigation">
+                    <ul class="inline-list no-margin">
+                      <li><a href="#">Paraíba</a></li>
+                      <li><a href="#">Política</a></li>
+                      <li><a href="#">Policial</a></li>
+                      <li><a href="#">Brasil</a></li>
+                      <li><a href="#">Mundo</a></li>
+                      <li><a href="#">Esportes</a></li>
+                      <li><a href="#">Entretenimento</a></li>
+                      <li><a href="#">Vida & Lazer</a></li>
+                    </ul>
+                  </nav>
+
                 </div>
-                <div class="small-3 columns">
-                  <span class="postfix">.com</span>
+
+                <div id="wheather" class="abs small-1 small-pull-1">
+                  <div class="d-table-cell small-12">
+                      <span class="icon-cloud left"></span>
+                      <span class="top-date left">
+                        <strong>qui</strong><strong>27</strong><strong>24</strong>
+                      </span>
+                  </div>
                 </div>
+
+                <a href="#" id="pba-search" class="small-1 abs">
+                  <span class="d-table-cell small-12 text-center">
+                      <span href="#" class="d-iblock icon-search"></span>
+                      <span href="#" class="d-iblock icon-close hidden"></span>
+                  </span>
+                </a>
+                  <form novalidate="novalidate" class="small-9 small-push-2 column abs search-portal" ng-controller="SearchController">
+                      <div class="small-12 columns">
+                          <input type="text" id="input-portal" placeholder="O que você procura?" ng-model="query.term" ng-keyup="search(query)">
+                      </div>
+                  </form>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select Box</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 medium-6 columns">
-              <label>Choose Your Favorite</label>
-              <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
-            </div>
-            <div class="large-6 medium-6 columns">
-              <label>Check these out</label>
-              <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-              <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Textarea Label</label>
-              <textarea placeholder="small-12.columns"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>     
+          </header>
 
-      <div class="large-4 medium-4 columns">
-        <h5>Try one of these buttons:</h5>
-        <p><a href="#" class="small button">Simple Button</a><br/>
-        <a href="#" class="small radius button">Radius Button</a><br/>
-        <a href="#" class="small round button">Round Button</a><br/>            
-        <a href="#" class="medium success button">Success Btn</a><br/>
-        <a href="#" class="medium alert button">Alert Btn</a><br/>
-        <a href="#" class="medium secondary button">Secondary Btn</a></p>           
-        <div class="panel">
-          <h5>So many components, girl!</h5>
-          <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-          <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>          
-        </div>
-      </div>
-    </div>
+          <div id="home-top" class="row">
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+              <article class="small-12 left section-block">
+
+                  <aside class="small-12 large-9 columns">
+                      <h6 class="post-tag no-margin">Disputa interna</h6>
+                      <h3 class="divide-10"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium officiis sequi vel</a></h3>
+                      <h6><a href="#" title=""><small class="primary d-iblock">&#9899;</small> Ricardo afirma que nada muda no Governo</a></h6>
+                  </aside>
+
+                  <figure class="small-3 columns show-for-large-up">
+                      <header class="small-12 left">
+                          <p class="font-small divide-10 text-right text-up"><strong>Publicidade</strong></p>
+                      </header>
+                      <img src="http://www.eiseverywhere.com/image.php?acc=14&id=83558" alt=""/>
+                  </figure>
+
+              </article>
+
+              <aside class="small-12 large-9 left">
+                  <section class="small-12 left">
+
+                      <div class="d-block divide-20 column big-feature" title="">
+                        <figure class="small-12 left pba-th top-article-th rel">
+                            <div class="small-12 abs img" data-thumb="http://blog.portalexamedeordem.com.br/blog/wp-content/uploads/2013/09/331.jpg"></div>
+                            <a href="#" class="mask-gradent small-12 abs"></a>
+                            <figcaption class="small-12 abs">
+                                <h6 class="post-tag no-margin">Crise política</h6>
+                                <h3 class="divide-10 large-8"><a href="#" title="" class="white">Partidos da base assinam manifesto em defesa de Dilma</a></h3>
+
+                                <span class="small-12 left show-for-large-up">
+                                    <span class="d-block small-3 left text-up font-light white share-title">Compartilhe</span>
+                                    <span class="d-block small-9 left white social-list">
+                                        <a href="#" title="" class="icon-social-facebook font-xlarge white"></a>
+                                        <a href="#" title="" class="icon-whatsapp font-xlarge white"></a>
+                                        <a href="#" title="" class="icon-twitter font-xlarge white"></a>
+                                    </span>
+                                </span>
+                            </figcaption>
+                        </figure>
+                      </div>
+
+                      <nav id="recent-features" class="small-12 left">
+
+                        <figure class="small-12 medium-4 columns rel recent-feat-th">
+                            <div class="small-12 left rel" data-thumb="http://www.jornalestrondo.com.br/wp-content/uploads/2014/04/policiais.jpg">
+                                <a href="#" class="mask-gradent2 small-12 abs" title=""></a>
+                                <figcaption class="small-12 abs">
+                                    <h6 class="post-tag font-normal">Violência</h6>
+                                    <h4 class="font-xlarge divide-5"><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                                    <p class="no-margin small-12 left font-light text-up font-small">
+                                        <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                                    </p>
+
+                                </figcaption>
+                            </div>
+                        </figure>
+
+                          <figure class="small-12 medium-4 columns rel recent-feat-th">
+                              <div class="small-12 left rel" data-thumb="http://kkidev.com.br/visor/wp-content/uploads/2013/11/brasil-politica-senado-20130625-77-size-620.jpg">
+                                  <a href="#" class="mask-gradent2 small-12 abs" title=""></a>
+                                  <figcaption class="small-12 abs">
+                                      <h6 class="post-tag font-normal">No senado</h6>
+                                      <h4 class="font-xlarge divide-5"><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                                      <p class="no-margin small-12 left font-light text-up font-small">
+                                          <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                                      </p>
+
+                                  </figcaption>
+                              </div>
+                          </figure>
+
+                          <!-- noticia sem imagem -->
+                          <figure class="small-12 medium-4 columns rel recent-feat-th not-img">
+                              <div class="small-12 left rel">
+                                  <!--<a href="#" class="mask-gradent2 small-12 abs" title=""></a>-->
+                                  <figcaption class="small-12 abs">
+                                      <h6 class="post-tag font-normal">Partido verde</h6>
+                                      <h4 class="font-xlarge divide-5"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                                      <p class="font-small no-margin post-excerpt hide-for-medium-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga, optio! Alias consequatur, debitis deserunt dicta enim</p>
+                                      <div class="divide-10 show-for-medium-down"></div>
+                                      <p class="no-margin small-12 left font-light text-up font-small">
+                                          <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                                      </p>
+                                  </figcaption>
+                              </div>
+                          </figure>
+
+                      </nav>
+                  </section>
+              </aside>
+
+              <aside class="small-12 large-3 left">
+                  <figure class="small-12 medium-4 large-12 columns rel recent-feat-th">
+                      <div class="small-12 left rel" data-thumb="http://n.i.uol.com.br/educacao/saladoprofessor/banco/reforma-politica-gr.jpg">
+                          <a href="#" class="mask-gradent2 small-12 abs" title=""></a>
+                          <figcaption class="small-12 abs">
+                              <h6 class="post-tag font-normal">No senado</h6>
+                              <h4 class="font-xlarge divide-5"><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                              <p class="no-margin small-12 left font-light text-up font-small">
+                                  <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                              </p>
+
+                          </figcaption>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 large-12 columns rel recent-feat-th">
+                      <div class="small-12 left rel" data-thumb="http://info.abril.com.br/noticias/blogs/trending-blog/files/2013/06/Reforma-Pol%C3%ADtica-J%C3%A1-620x399.jpg">
+                          <a href="#" class="mask-gradent2 small-12 abs" title=""></a>
+                          <figcaption class="small-12 abs">
+                              <h6 class="post-tag font-normal">No senado</h6>
+                              <h4 class="font-xlarge divide-5"><a href="#" title="">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                              <p class="no-margin small-12 left font-light text-up font-small">
+                                  <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                              </p>
+
+                          </figcaption>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 large-12 columns rel recent-feat-th not-img">
+                      <div class="small-12 left rel">
+                          <!--<a href="#" class="mask-gradent2 small-12 abs" title=""></a>-->
+                          <figcaption class="small-12 abs">
+                              <h6 class="post-tag font-normal">Partido verde</h6>
+                              <h4 class="font-xlarge divide-5"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h4>
+                              <p class="font-small no-margin post-excerpt hide-for-medium-only">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim fuga, optio! Alias consequatur, debitis deserunt dicta enim</p>
+                              <div class="divide-10 show-for-medium-down"></div>
+                              <p class="no-margin small-12 left font-light text-up font-small">
+                                  <span class="left">Compartilhe</span>
+                                        <span class="right font-large ">
+                                            <a href="#" class="d-iblock icon-social-facebook"></a>
+                                            <a href="#" class="d-iblock icon-whatsapp"></a>
+                                            <a href="#" class="d-iblock icon-twitter"></a>
+                                        </span>
+                              </p>
+                          </figcaption>
+                      </div>
+                  </figure>
+              </aside>
+
+              <div class="divide-20 column">
+                  <div class="h-line"></div>
+              </div>
+          </div> <!-- home.top -->
+
+          <!-- home.middle -->
+          <div class="row">
+              <section id="home-middle-news" class="small-12 large-9 left">
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news1.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news2.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news3.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news4.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news5.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+                  <figure class="small-12 medium-4 left small-news">
+                      <a href="#" class="d-block small-4 medium-6 columns">
+                          <img src="media/news6.jpg" alt=""/>
+                      </a>
+                      <figcaption class="small-8 medium-6 columns">
+                          <h6 class="post-tag divide-5">Legenda</h6>
+                          <h6><a href="#" title="">Lorem ipsum dolor sit amet, consectetur</a></h6>
+                      </figcaption>
+
+                      <div class="small-12 columns">
+                          <div class="small-12 left"></div>
+                      </div>
+                  </figure>
+
+              </section>
+          </div>
+
+          <!--
+          <div class="section-test" data-section="sidebar"></div>
+          <div class="section-test" data-section="popular"></div>
+          <div class="section-test" data-section="bloggers"></div>-->
+
+
+      </div><!-- //wrapper -->
+
+      <div id="mask-white"></div>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-route/angular-route.min.js"></script>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="scripts.js"></script>
+      <script src="app.js"></script>
   </body>
 </html>

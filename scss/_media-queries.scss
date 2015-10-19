@@ -1,0 +1,25 @@
+@media #{$small-only} {
+
+  .row {
+    max-width: rem-calc(480);
+  }
+
+}
+
+@media #{$medium-only} {
+
+  .row {
+    max-width: none;
+    width: rem-calc(800);
+  }
+
+}
+
+@media #{$large-up} {
+
+  .row {
+    width: rem-calc(1280);
+    max-width: none;
+  }
+
+}

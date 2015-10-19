@@ -1,0 +1,240 @@
+figure {
+  margin: 0;
+}
+#header {
+  border-bottom: 1px solid #eaeaea;
+
+  > .row {
+    height: rem-calc(90);
+    position: relative;
+    @extend .d-table;
+    overflow: hidden;
+  }
+}
+//menu principal
+#main-menu {
+  > ul {
+    line-height: 2.2;
+  }
+  a {
+    font-size: rem-calc(14);
+  }
+}
+//tempo-data
+#wheather {
+  top: 0;
+  height: rem-calc(90);
+  @extend .d-table;
+
+  .icon-cloud {
+    color: #ccc;
+    font-size: rem-calc(26);
+    line-height: 1.8;
+    margin-right: rem-calc(5);
+  }
+  strong {
+    display: block;
+    line-height: 1;
+    font-size: rem-calc(13);
+    &:nth-child(even) {
+      font-size: rem-calc(16);
+    }
+  }
+}
+#pba-search {
+  right: rem-calc(10);
+  top: 0;
+  z-index: 99;
+  height: 100%;
+  border-left: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+  font-size: rem-calc(24);
+  @extend .d-table;
+
+  &.active {
+    @extend .small-3;
+  }
+}
+
+//offcanvas
+.open-offcanvas {
+  margin-top: rem-calc(3.5);
+}
+a.close-offcanvas {
+  @extend .abs;
+  @extend .d-block;
+  @extend .small-12;
+  @extend %full-height;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(white, .8);
+  visibility: hidden;
+  opacity: 0;
+
+  &.move {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.close-offcanvas {
+  cursor: pointer;
+}
+
+#menu-offcanvas {
+  //display: none;
+  width: rem-calc(250);
+  @extend .bg-menu;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  @extend %full-height;
+
+  visibility: hidden;
+  opacity: 0;
+  @extend %transition;
+  @include translateX(-100%);
+
+  &.move {
+    visibility: visible;
+    opacity: 1;
+    @include translateX(0);
+  }
+
+  header {
+    padding: rem-calc(10 20);
+  }
+
+  form {
+    @extend .small-12;
+    @extend .left;
+    @extend .rel;
+    padding: rem-calc(0 20);
+
+    > input {
+      border-color: $primary-color;
+      @extend .bg-menu-light;
+      @extend .primary;
+      font-weight: 300;
+      padding-right: rem-calc(40);
+
+      &::-webkit-input-placeholder {
+        color: $primary-color;
+      }
+
+      &:-moz-placeholder { /* Firefox 18- */
+        color: $primary-color;
+      }
+
+      &::-moz-placeholder {  /* Firefox 19+ */
+        color: $primary-color;
+      }
+
+      &:-ms-input-placeholder {
+        color: $primary-color;
+      }
+    }
+    > span {
+      font-size: rem-calc(24);
+      right: rem-calc(30);
+      line-height: rem-calc(37);
+      cursor: pointer;
+    }
+  }
+}
+
+#mo-menu {
+  ul,li {
+    @extend .small-12;
+    @extend .left;
+    @extend .no-margin;
+  }
+  a {
+    @extend .d-block;
+    @extend .small-12;
+    @extend .bg-menu-light;
+    padding: rem-calc(10 20);
+    font-size: rem-calc(12);
+    border-bottom: 1px solid $bg-menu;
+    color: white;
+    font-weight: 500;
+
+    &:hover {
+      background-color: shade($bg-menu-light, 4%);
+      color: $primary-color;
+    }
+  }
+}
+
+//busca
+.search-portal {
+  top: 0;
+  z-index: 9;
+  @extend %full-height;
+  background-color: white;
+  @extend %transition;
+  opacity: 0;
+  visibility: hidden;
+  @include translateY(100%);
+
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    @include translateY(0);
+  }
+  div {
+    @extend %full-height;
+  }
+  input {
+    @extend %full-height;
+    border: none;
+    border-left: 1px solid #eaeaea;
+    @extend .small-12;
+    @extend .left;
+    font-size: rem-calc(32);
+    font-weight: 300;
+    color: #888;
+    padding: rem-calc(0 20);
+    box-shadow: none !important;
+
+    &:focus {
+      box-shadow: none;
+      border-left: 1px solid #eaeaea;
+      background-color: #fff;
+    }
+  }
+}
+
+@media #{$medium-down} {
+  #header {
+    > .row {
+      height: rem-calc(50);
+    }
+    .logo {
+      img {
+        max-width: rem-calc(136);
+      }
+    }
+  }
+  #pba-search, #wheather {
+    display: none !important;
+  }
+  .search-portal {
+    display: none;
+  }
+}
+
+@media #{$large-up} {
+  .open-offcanvas {
+    display: none;
+  }
+  #menu-offcanvas {
+    display: none;
+  }
+  a.close-offcanvas {
+    display: none;
+  }
+}

@@ -1,0 +1,29 @@
+body {
+  overflow-x: hidden;
+}
+#wrapper {
+  @extend %transition;
+  @extend %full-height;
+  &.move {
+    @include translateX(rem-calc(250));
+  }
+}
+a {
+  color: $secondary-color;
+  @extend %transition;
+}
+::-webkit-input-placeholder {
+  color: #9a9a9a;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #9a9a9a;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: #9a9a9a;
+}
+
+:-ms-input-placeholder {
+  color: #9a9a9a;
+}
