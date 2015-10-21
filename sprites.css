@@ -1,6 +1,12 @@
-.icon-menu {
+.icon-logo-footer {
   background-image: url(images/spritesheet.png);
   background-position: 0px 0px;
+  width: 197px;
+  height: 30px;
+}
+.icon-menu {
+  background-image: url(images/spritesheet.png);
+  background-position: 0px -30px;
   width: 23px;
   height: 19px;
 }

@@ -17,18 +17,104 @@ $.fn.getDataThumb = function(options) {
 $('*[data-thumb]').getDataThumb(); // data-thumb para esses elementos
 
 //Offcanvas menu
-var PBA_App = function() {
-
-};
+var PBA_App = function() {};
 
 /**
  * Inicia todos os métodos da aplicação
  **/
 PBA_App.init = function() {
     var main = new this;
+
     main.showSearch();
     main.moMenu();
     main.loadSections();
+    main.videosCarousel();
+    main.popularCarousel();
+    main.bloggersCarousel();
+    main.carsCarousel();
+};
+
+/**
+ * Carousel videos
+ * */
+PBA_App.prototype.videosCarousel = function() {
+    var videos = $(".nav-videos");
+    videos.owlCarousel({
+        responsiveBaseWidth: $(".row"),
+        responsive: true,
+        responsiveRefreshRate: 200,
+        pagination: true,
+        itemsCustom: [
+            [200, 2],
+            [700, 2],
+            [800, 3],
+        ],
+        rewindNav: false,
+        rewindSpeed: 300
+    });
+};
+
+/**
+ * Carousel mais lidas
+ * */
+PBA_App.prototype.popularCarousel = function() {
+    $('#list-popular').clone().appendTo('#popular-carousel');
+    $("li","#popular-carousel").each(function() { $(this).addClass('item'); });
+
+    var carousel = $("ul","#popular-carousel");
+    carousel.owlCarousel({
+        responsiveBaseWidth: $(".row"),
+        responsive: true,
+        responsiveRefreshRate: 200,
+        pagination: true,
+        itemsCustom: [
+            [200, 1]
+        ],
+        rewindNav: false,
+        rewindSpeed: 300
+    });
+};
+
+/**
+ * Carousel colunistas
+ * */
+PBA_App.prototype.bloggersCarousel = function() {
+    $('#list-bloggers').clone().appendTo('#bloggers-carousel');
+    $("li","#bloggers-carousel").each(function() { $(this).addClass('item'); });
+
+    var carousel = $("ul","#bloggers-carousel");
+    carousel.owlCarousel({
+        responsiveBaseWidth: $(".row"),
+        responsive: true,
+        responsiveRefreshRate: 200,
+        pagination: true,
+        itemsCustom: [
+            [200, 1]
+        ],
+        rewindNav: false,
+        rewindSpeed: 300
+    });
+};
+
+/**
+ * Carousel carros
+ * */
+PBA_App.prototype.carsCarousel = function() {
+    $('.list-cars').clone().appendTo('#cars-carousel');
+    $("li","#cars-carousel").each(function() { $(this).addClass('item'); });
+
+    var carousel = $("ul","#cars-carousel");
+    carousel.owlCarousel({
+        responsiveBaseWidth: $(".row"),
+        responsive: true,
+        responsiveRefreshRate: 200,
+        pagination: true,
+        itemsCustom: [
+            [200, 1]
+        ],
+        rewindNav: false,
+        rewindSpeed: 300
+    });
 };
 
 /**

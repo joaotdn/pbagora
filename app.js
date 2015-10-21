@@ -1,2 +1,2 @@
-/*! parahybolica 19-10-2015 */
+/*! parahybolica 21-10-2015 */
 angular.module("PBAapp",[]).controller("OffCanvas",["$scope",function(a){a.name="teste"}]),angular.module("PBAapp",["ngRoute"]).controller("SearchController",["$scope",function(a){a.search=function(a){console.log(a.term)}}]);

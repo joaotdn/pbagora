@@ -76,6 +76,9 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+.bg-dark {
+  background-color: #484848;
+}
 
 //Margens
 .no-margin {
@@ -150,6 +153,10 @@
   font-weight: 700;
   @extend .primary;
   @extend .font-normal;
+
+  &.thin {
+    @extend .font-light;
+  }
 }
 
 @media #{$medium-down} {
@@ -168,4 +175,19 @@
   @extend .small-12;
   @extend .left;
   border-bottom: 1px solid #eaeaea;
+}
+
+//publicidades
+#ads {
+  img, iframe, object, embed, html {
+    max-width: 100%;
+  }
+}
+.big-ads {
+  > div {
+    padding-top: rem-calc(10);
+    padding-bottom: rem-calc(10);
+    background-color: #ebebeb;
+    border: 1px solid #d6dde1;
+  }
 }

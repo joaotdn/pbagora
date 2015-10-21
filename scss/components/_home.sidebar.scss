@@ -1,0 +1,135 @@
+#sidebar {
+  #ads {
+    @extend .hide-for-medium-only;
+  }
+}
+//Mais lidas
+#list-popular {
+    counter-reset: my-badass-counter;
+    li {
+      @extend .small-12;
+      @extend .columns;
+      
+      &:not(:first-child) {
+        padding-top: rem-calc(20);
+        margin-top: rem-calc(20);
+        border-top: 1px dotted #888;
+      }
+
+      a {
+        padding-right: rem-calc(10);
+      }
+      
+      .white {
+        line-height: 1;
+        font-size: rem-calc(16);
+        @extend .font-black;
+        @extend .font-large;
+        @extend %transition;
+        &:hover {@extend .primary;}
+      }
+    }
+}
+#list-popular li:before {
+  content: counter(my-badass-counter);
+  counter-increment: my-badass-counter;
+  @extend .d-block;
+  @extend .font-black;
+  @extend .primary;
+  width: rem-calc(80);
+  height: rem-calc(80);
+  line-height: rem-calc(80);
+  text-align: center;
+  @extend .left;
+  font-size: rem-calc(56);
+}
+.popular-container {
+  > ul {
+    @extend .show-for-large-up;
+  }
+}
+
+//colunistas
+.blogger-avatar {
+  width: rem-calc(80);
+  height: rem-calc(80);
+  border-radius: 100%;
+}
+#list-bloggers {
+  li {
+    @extend .small-12;
+    @extend .columns;
+
+    &:not(:first-child) {
+      padding-top: rem-calc(20);
+      margin-top: rem-calc(20);
+      border-top: 1px dotted #888;
+    }
+  }
+  figcaption {
+    width: rem-calc(190);
+    padding-left: rem-calc(10);
+  }
+
+  &.offers {
+    li {
+      border-color: #eaeaea;
+    }
+    figcaption {
+      width: rem-calc(125);
+    }
+    a[data-thumb] {
+      width: rem-calc(150);
+      height: rem-calc(100);
+    }
+  }
+}
+
+//Ofertas de carro
+#offers-box {
+  > div {
+    border: 1px solid #eaeaea;
+  }
+
+  header {
+    padding: rem-calc(15 10);
+    border-bottom: 1px dotted #eaeaea;
+  }
+
+  &.cars {
+    clear: left;
+  }
+}
+.list-offers {
+  > ul {
+    @extend .show-for-large-up;
+  }
+}
+
+//enquete
+#pba-pool {
+  form {
+    @extend .small-12;
+    @extend .columns;
+    @extend .section-block;
+  }
+  label,input {
+    @extend .no-margin;
+  }
+  input[type="radio"] {
+    @include transform(scale(0.6) translateY(3px));
+  }
+  input[type="submit"],
+  button {
+    @include button();
+    @extend .no-margin;
+  }
+}
+
+@media #{$medium-only} {
+  #list-bloggers {
+    figcaption {
+      width: rem-calc(280);
+    }
+  }
+}

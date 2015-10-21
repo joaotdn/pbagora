@@ -1,0 +1,133 @@
+#videos {
+
+  > div {
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+    > div {
+
+      figure {
+        padding-left: rem-calc(20);
+        padding-right: rem-calc(20);
+      }
+
+      figcaption {
+        bottom: 0;
+        left: 0;
+        padding: rem-calc(20) rem-calc(35);
+        z-index: 99;
+      }
+
+      article {
+        padding-left: rem-calc(10);
+        width: rem-calc(785);
+      }
+    }
+  }
+
+  figure {
+    .mask {
+      @extend %full-height;
+      @extend %transition;
+      background-color: rgba(#000, .5);
+      opacity: 0;
+      visibility: hidden;
+      left: 0;
+      top: 0;
+      z-index: 9;
+
+      p {
+        @extend %transition;
+        @include translateY(20px);
+      }
+    }
+
+    &:hover {
+      .mask {
+        opacity: 1;
+        visibility: visible;
+        p {
+          @include translateY(0);
+        }
+      }
+    }
+
+  }
+
+}
+.video-th {
+  height: rem-calc(430);
+  @extend .rel;
+}
+.big-play {
+  background-color: $primary-color;
+  width: rem-calc(84);
+  height: rem-calc(84);
+  @extend .text-center;
+  cursor: pointer;
+  font-size: rem-calc(42);
+  &:hover {
+    font-size: rem-calc(46);
+  }
+}
+.small-video {
+  height: rem-calc(160);
+  &:hover {
+    .small-play {
+      @include scale(1.05);
+    }
+  }
+}
+.small-play {
+  @extend %transition;
+  width: rem-calc(40);
+  height: rem-calc(40);
+  background-color: $primary-color;
+
+  .icon-play {
+    line-height: rem-calc(40);
+  }
+}
+
+@media #{$small-only} {
+  #videos {
+    > div {
+      > div {
+        article {
+          width: 75%;
+          h3 {
+            font-size: rem-calc(20);
+          }
+        }
+      }
+    }
+  }
+  .video-th {
+    height: rem-calc(250);
+  }
+  .big-play {
+    width: rem-calc(40);
+    height: rem-calc(40);
+    font-size: rem-calc(16);
+    &:hover {
+      font-size: rem-calc(16);
+    }
+  }
+  .small-video {
+    height: rem-calc(130);
+  }
+}
+
+@media #{$medium-only} {
+  #videos {
+    > div {
+      > div {
+        article {
+          width: rem-calc(620);
+        }
+      }
+    }
+  }
+  .video-th {
+    height: rem-calc(350);
+  }
+}

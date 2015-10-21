@@ -44,12 +44,18 @@
 @import "modules";
 @import "bases";
 
-//Componentes
+//Cabeçalho
 @import "components/header"; // cabeçalho do site
 
 //Componentes da home
 @import "components/home.top";
 @import "components/home.middle";
+@import "components/home.videos";
+@import "components/home.bottom";
+@import "components/home.sidebar";
+
+//rodape
+@import "components/footer";
 
 //Media Queries
 @import "media-queries";

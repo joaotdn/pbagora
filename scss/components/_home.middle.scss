@@ -14,7 +14,24 @@
   }
 }*/
 .small-news {
-  > div > div {
+  &.not-img {
+    figcaption {
+      min-height: rem-calc(60);
+    }
+  }
+}
+.medium-news {
+  img {
+    @extend .small-12;
+  }
+  &:hover {
+    > a {
+      opacity: .8;
+    }
+  }
+}
+.dot-border {
+  > div {
     padding-bottom: rem-calc(20);
     margin-bottom: rem-calc(20);
     border-bottom: 2px dotted #ccc;

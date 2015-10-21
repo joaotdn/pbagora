@@ -1,0 +1,37 @@
+#footer {
+  padding: rem-calc(40 0);
+  margin-top: rem-calc(30);
+  background-color: #454a55;
+
+  figcaption {
+    color: #353942;
+  }
+}
+
+#menu-footer {
+  ul {
+    a {
+      @extend .white;
+      font-size: rem-calc(14);
+      font-weight: 500;
+    }
+  }
+}
+
+@media #{$large-up} {
+  #menu-footer {
+    li {
+      width: 25%;
+      display: block;
+      float: left;
+    }
+  }
+}
+@media #{$medium-down} {
+  #social-footer {
+    ul {
+      display: inline-block;
+      float: none !important;
+    }
+  }
+}

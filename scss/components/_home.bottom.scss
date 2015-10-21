@@ -1,0 +1,32 @@
+.special-news {
+  figure {
+    a {
+      overflow: hidden;
+      height: rem-calc(286);
+      > .th {
+        @extend %transition;
+        @extend %full-height;
+      }
+    }
+    &:hover {
+      .th {
+        @include scale(1.05);
+      }
+    }
+  }
+
+  figcaption {
+    bottom: 0;
+    left: 0;
+    padding: rem-calc(10);
+    z-index: 99;
+    h4 {
+      @extend %transition;
+    }
+    &:hover {
+      h4 {
+        color: $primary-color;
+      }
+    }
+  }
+}
