@@ -6,7 +6,6 @@
  * Time: 12:34
  */
 ?>
-
 <!doctype html>
 <html class="no-js" lang="pt-br" ng-app="PBAapp">
 <head>
@@ -15,12 +14,19 @@
     <title>PB Agora</title>
 
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,500,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css" />
+    <script>
+      //<![CDATA[
+      var getData = {
+        'urlDir':'<?php bloginfo('template_directory');?>/',
+        'ajaxDir':'<?php echo stripslashes(get_admin_url()).'admin-ajax.php';?>'
+      }
+      //]]>
+    </script>
 
-    <script src="bower_components/modernizr/modernizr.js"></script>
+    <?php wp_head(); ?>
 </head>
 <body>
-<div id="wrapper" class="small-12 left">
+<div id="wrapper" class="small-12 left rel">
 
     <div id="menu-offcanvas">
         <header class="small-12 left">
@@ -39,6 +45,16 @@
     </div>
     <a href="#" class="close-offcanvas"></a>
 
+    <nav id="mo-menu-scroll">
+        <figure class="small-12 text-center columns logo">
+            <a href="#" class="left d-iblock icon-menu scroll-offcanvas scroll"></a>
+
+            <a href="<?php echo home_url(); ?>" title="Página principal" class="less-opacity">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/>
+            </a>
+        </figure>
+    </nav>
+
     <header id="header" class="small-12">
         <div class="row rel">
 
@@ -48,34 +64,47 @@
                     <figure class="small-12 large-2 small-text-center large-text-left columns logo">
                         <a href="#" class="left d-iblock icon-menu open-offcanvas"></a>
 
-                        <a href="#" title="Página principal" class="less-opacity">
-                            <img src="images/logo.png" alt=""/>
+                        <a href="<?php echo home_url(); ?>" title="Página principal" class="less-opacity">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt=""/>
                         </a>
                     </figure>
 
                     <nav id="main-menu" class="small-8 columns end show-for-large-up" role="navigation">
                         <ul class="inline-list no-margin">
-                            <li><a href="#">Paraíba</a></li>
-                            <li><a href="#">Política</a></li>
-                            <li><a href="#">Policial</a></li>
-                            <li><a href="#">Brasil</a></li>
-                            <li><a href="#">Mundo</a></li>
-                            <li><a href="#">Esportes</a></li>
-                            <li><a href="#">Entretenimento</a></li>
-                            <li><a href="#">Vida & Lazer</a></li>
+                            <?php
+                              $defaults = array(
+                                'theme_location'  => 'primary',
+                                'menu'            => 'Menu principal',
+                                'container'       => '',
+                                'container_class' => '',
+                                'container_id'    => '',
+                                'menu_class'      => '',
+                                'menu_id'         => '',
+                                'echo'            => true,
+                                'fallback_cb'     => 'primary',
+                                'before'          => '',
+                                'after'           => '',
+                                'link_before'     => '',
+                                'link_after'      => '',
+                                'items_wrap'      => '%3$s',
+                                'depth'           => 0,
+                                'walker'          => '',
+                              );
+                              wp_nav_menu($defaults);
+                            ?>
                         </ul>
                     </nav>
 
                 </div>
 
-                <div id="wheather" class="abs small-1 small-pull-1">
+                <!--<div id="wheather" class="abs small-1 small-pull-1">
                     <div class="d-table-cell small-12">
                         <span class="icon-cloud left"></span>
                       <span class="top-date left">
                         <strong>qui</strong><strong>27</strong><strong>24</strong>
                       </span>
                     </div>
-                </div>
+                </div>-->
 
                 <a href="#" id="pba-search" class="small-1 abs">
                   <span class="d-table-cell small-12 text-center">

@@ -16,13 +16,17 @@
 .small-news {
   &.not-img {
     figcaption {
-      min-height: rem-calc(60);
+      min-height: rem-calc(98);
     }
   }
 }
 .medium-news {
   img {
     @extend .small-12;
+  }
+  h5 {
+    min-height: rem-calc(84);
+    @extend .d-block;
   }
   &:hover {
     > a {

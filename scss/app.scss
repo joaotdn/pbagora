@@ -14,7 +14,7 @@
    "foundation/components/clearing",
 //   "foundation/components/dropdown",
 //   "foundation/components/dropdown-buttons",
-//   "foundation/components/flex-video",
+   "foundation/components/flex-video",
    "foundation/components/forms",
    "foundation/components/grid",
    "foundation/components/inline-lists",
@@ -27,7 +27,7 @@
 //   "foundation/components/panels",
 //   "foundation/components/pricing-tables",
 //   "foundation/components/progress-bars",
-//   "foundation/components/reveal",
+   "foundation/components/reveal",
 //   "foundation/components/side-nav",
 //   "foundation/components/split-buttons",
 //   "foundation/components/sub-nav",
@@ -53,6 +53,9 @@
 @import "components/home.videos";
 @import "components/home.bottom";
 @import "components/home.sidebar";
+
+//Post/Page
+@import "components/single";
 
 //rodape
 @import "components/footer";

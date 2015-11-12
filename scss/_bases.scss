@@ -1,5 +1,8 @@
 body {
   overflow-x: hidden;
+  &.search-mode {
+    padding-top: rem-calc(91);
+  }
 }
 #wrapper {
   @extend %transition;

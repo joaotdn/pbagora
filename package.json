@@ -1,14 +1,14 @@
 {
-  "name": "parahybolica",
+  "name": "pbagora",
   "version": "1.0.0",
-  "title": "parahybolica",
-  "homepage": "http://www.parahybolica.com/",
+  "title": "pbagora",
+  "homepage": "http://www.pbagora.com/",
   "description": "",
   "author": "joaotdn@gmail.com",
   "tags": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/plandd/parahybolica.git"
+    "url": "https://github.com/plandd/pbagora.git"
   },
   "devDependencies": {
     "csswring": "^3.0.5",

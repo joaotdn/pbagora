@@ -2,6 +2,9 @@
  small {
    @include translateY(rem-calc(-2));
  }
+  &.search-mode {
+    margin-top: rem-calc(91);
+  }
 }
 .big-feature {
   height: rem-calc(395);
