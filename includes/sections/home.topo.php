@@ -98,9 +98,9 @@ foreach ($posts as $post): setup_postdata( $post );
                                 <span class="small-12 left show-for-large-up">
                                     <span class="d-block small-3 left text-up font-light white share-title">Compartilhe</span>
                                     <span class="d-block small-9 left white social-list">
-                                        <a href="#" title="" class="icon-social-facebook font-xlarge white"></a>
-                                        <a href="#" title="" class="icon-whatsapp font-xlarge white"></a>
-                                        <a href="#" title="" class="icon-twitter font-xlarge white"></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-social-facebook font-xlarge white"></a>
+                                        <a href="whatsapp://send?text=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-whatsapp font-xlarge white"></a>
+                                        <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-twitter font-xlarge white"></a>
                                     </span>
                                 </span>
                     </figcaption>
@@ -146,9 +146,9 @@ foreach ($posts as $post): setup_postdata( $post );
                             <p class="no-margin small-12 left font-light text-up font-small">
                                 <span class="left">Compartilhe</span>
                                 <span class="right font-large ">
-                                    <a href="#" class="d-iblock icon-social-facebook"></a>
-                                    <a href="#" class="d-iblock icon-whatsapp"></a>
-                                    <a href="#" class="d-iblock icon-twitter"></a>
+                                   <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-social-facebook font-xlarge white"></a>
+                                    <a href="whatsapp://send?text=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-whatsapp font-xlarge white"></a>
+                                    <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-twitter font-xlarge white"></a>
                                 </span>
                             </p>
 
@@ -198,9 +198,9 @@ foreach ($posts as $post): setup_postdata( $post );
                             <p class="no-margin small-12 left font-light text-up font-small">
                                 <span class="left">Compartilhe</span>
                                 <span class="right font-large ">
-                                    <a href="#" class="d-iblock icon-social-facebook"></a>
-                                    <a href="#" class="d-iblock icon-whatsapp"></a>
-                                    <a href="#" class="d-iblock icon-twitter"></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-social-facebook"></a>
+                                    <a href="whatsapp://send?text=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-whatsapp"></a>
+                                    <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-twitter"></a>
                                 </span>
                             </p>
 

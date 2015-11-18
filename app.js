@@ -1,2 +1,2 @@
-/*! pbagora 12-11-2015 */
-angular.module("PBAapp",[]).controller("OffCanvas",["$scope",function(a){a.name="teste"}]),angular.module("PBAapp",["ngRoute"]).controller("SearchController",["$scope",function(a){a.search=function(a){console.log(a.term)}}]);
+/*! pbagora 18-11-2015 */
+angular.module("PBAapp",[]).controller("OffCanvas",["$scope",function(a){a.name="teste"}]),angular.module("PBAapp",["ngRoute"]).controller("SearchController",["$scope",function(a){a.search=function(a){$.ajax({url:getData.ajaxDir,type:"GET",dataType:"html",data:{action:"pba_search_form",keyword:a},success:function(a){$(".the-results").html(a)}})}}]);

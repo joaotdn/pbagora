@@ -1,0 +1,35 @@
+#nav-below {
+	display: none;
+}
+.post {
+	margin-bottom: rem-calc(20);
+	
+	&:not(:first-child) {
+		padding-top: rem-calc(20);
+		border-top: 1px solid #eaeaee;
+	}
+
+	a[data-thumb] {
+		//width: rem-calc(300);
+		height: rem-calc(190);
+
+		&:hover {
+			opacity: .8;
+		}
+	}
+}
+.the-results {
+	@extend %full-height;
+	overflow: hidden;
+}
+.mask-white {
+	@extend %full-height;
+}
+
+@media #{$medium-up} {
+	.post {
+		figcaption {
+			padding-left: rem-calc(20);
+		}
+	}
+}

@@ -93,6 +93,24 @@ if( function_exists('acf_add_options_page') ) {
     'parent_slug' => 'opcoes-gerais',
   ));
 
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Código de rastramento do analytics',
+    'menu_title'  => 'Analytics',
+    'parent_slug' => 'opcoes-gerais',
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Otimizar indexação da página',
+    'menu_title'  => 'SEO',
+    'parent_slug' => 'opcoes-gerais',
+  ));
+
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Adicione código extra no site',
+    'menu_title'  => 'Extra',
+    'parent_slug' => 'opcoes-gerais',
+  ));
+
 }
 
 /**
@@ -242,6 +260,9 @@ function wpb_get_post_views($postID){
 //Colunistas
 include_once( get_stylesheet_directory() . '/includes/post-types/colunistas.php' );
 
+//Ofertas
+include_once( get_stylesheet_directory() . '/includes/post-types/ofertas.php' );
+
 /*
     Icones para post-types
     (http://melchoyce.github.io/dashicons/)
@@ -251,8 +272,11 @@ function add_menu_icons_styles(){
 ?>
 
 <style>
-#menu-posts-colunista div.wp-menu-image:before {
-  content: "\f338";
+#menu-posts-coluna div.wp-menu-image:before {
+  content: "\f122";
+}
+#menu-posts-oferta div.wp-menu-image:before {
+  content: "\f488";
 }
 </style>
  
@@ -260,3 +284,116 @@ function add_menu_icons_styles(){
 }
 
 add_action( 'admin_head', 'add_menu_icons_styles' );
+
+//SEO
+//Pegar descrição de página ativa
+function getPageDescription() {
+  $desc = get_field('pab_desc', 'option');
+  if(is_home())
+    return $desc;
+  elseif(is_page() || is_single())
+    return the_excerpt();
+  elseif(is_category())
+    return get_query_var('cat');
+  else
+    return get_bloginfo( 'description' );
+}
+
+function getThumbUrl($size) {
+    global $post;
+    if(!$size) {
+        $size = 'full';
+    }
+    $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
+    echo $thumb[0];
+}
+
+function fb_opengraph() {
+    global $post;
+    $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.pequeno');
+    $th = (!empty($thumb[0])) ? $thumb[0] : '';
+    $site_description = get_bloginfo( 'description' ); 
+    $stylesheet_url = get_bloginfo( 'stylesheet_url' );
+    $stylesheet_directory = get_bloginfo( 'stylesheet_directory' );
+    $site_name = (is_home()) ? get_bloginfo( 'name' ) : get_the_title( $post->ID );
+    $site_url = (is_home()) ? get_bloginfo( 'siteurl' ) : get_permalink( $post->ID );
+    $keywords = get_field('pba_keywords', 'option');
+    
+    ?>
+
+    <meta name="description" content="<?php echo getPageDescription(); ?>">
+    <meta name="keywords" content="<?php echo $keywords; ?>">
+    <meta name="author" content="http://plandc.com.br">
+    <meta name="subject" content="Portal de notícias da Paraíba">
+
+    <title><?php bloginfo('name'); ?> | <?php is_home() ? bloginfo('description') : wp_title(''); ?></title>
+    <link rel="shortcut icon" href="<?php echo $stylesheet_directory; ?>/favicon.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="icon" href="<?php echo $stylesheet_directory; ?>/favicon.ico" type="image/x-ico"/>
+    <link rel="stylesheet" href="<?php echo $stylesheet_url; ?>" />
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="<?php echo $site_name; ?>">
+    <meta itemprop="description" content="<?php echo getPageDescription(); ?>">
+    <?php if(is_home()): ?>
+      <meta itemprop="image" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
+    <?php else: ?><meta itemprop="image" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+
+    <!-- Twitter Card data -->
+    <?php if(is_home()): ?>
+      <meta name="twitter:card" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
+    <?php else: ?><meta name="twitter:card" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+    <meta name="twitter:site" content="@pbagora">
+    <meta name="twitter:title" content="<?php echo $site_name; ?>">
+    <meta name="twitter:description" content="<?php echo getPageDescription(); ?>">
+    <meta name="twitter:creator" content="@plandc">
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <?php if(is_home()): ?>
+      <meta name="twitter:image:src" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
+    <?php else: ?><meta name="twitter:image:src" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="<?php echo $site_name; ?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<?php echo $site_url; ?>" />
+    <?php if(is_home()): ?>
+      <meta property="og:image" content="<?php echo $stylesheet_directory; ?>/screenshot.png" />
+    <?php else: ?><meta property="og:image" content="<?php getThumbUrl(); ?>" /><?php endif; ?>
+    <meta property="og:description" content="<?php echo getPageDescription(); ?>" />
+    <meta property="og:site_name" content="<?php echo $site_name; ?>" />
+    
+    <?php if(!is_home()): ?>
+      <meta property="article:section" content="Artigo" />
+      <meta property="article:tag" content="<?php echo $keywords; ?>" />
+    <?php endif; ?>
+ 
+<?php
+  echo get_field('pba_analytics', 'option');
+}
+add_action('wp_head', 'fb_opengraph', 5);
+
+/**
+ * Busca via ajax
+ */
+add_action('wp_ajax_nopriv_pba_search_form', 'pba_search_form');
+add_action('wp_ajax_pba_search_form', 'pba_search_form');
+
+function pba_search_form() {
+  $query = $_GET['keyword'];
+  $term = $query['term'];
+  $the_query = new WP_Query( array( 's' => $term, 'post_type' => 'post', 'posts_per_page' => 12, 'orderby' => 'date' ) );
+  if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
+    global $post;
+    $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.editoria');
+    $th = (!empty($thumb[0])) ? $thumb[0] : '';
+
+  ?>
+  <figure class="divide-20">
+    <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
+    <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+  </figure>
+  <?php
+
+  endwhile; wp_reset_postdata(); endif;
+  
+  exit();
+}

@@ -120,6 +120,7 @@
     @include transform(scale(0.6) translateY(3px));
   }
   input[type="submit"],
+  input[type="button"],
   button {
     @include button();
     @extend .no-margin;

@@ -4,8 +4,14 @@
     <header class="small-12 left">
         <h3 class="lh-1 no-margin">Enquete</h3>
     </header>
+    <?php 
+        if (function_exists('vote_poll') && !in_pollarchive()):
+            get_poll();
+        endif;
+    ?>
 
-    <form action="">
+    <!--<form action="">
+
         <h5>O que você acha do novo design do portal PBAGORA?</h5>
         <div class="divide-10"></div>
 
@@ -16,7 +22,7 @@
         <p class="text-center no-margin">
             <input type="submit" value="Votar"/>
         </p>
-    </form>
+    </form>-->
 </div>
 
 <!-- publicidade -->

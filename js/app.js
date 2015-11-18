@@ -15,6 +15,7 @@ $.fn.getDataThumb = function(options) {
     });
 };
 $('*[data-thumb]').getDataThumb(); // data-thumb para esses elementos
+$('.the-results').perfectScrollbar(); 
 
 //Offcanvas menu
 var PBA_App = function() {};
