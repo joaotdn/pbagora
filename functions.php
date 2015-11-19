@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.1');
+define('THEME_VERSION', '1.0.9');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 
 class PBA_Main {

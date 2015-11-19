@@ -25,11 +25,24 @@
 .mask-white {
 	@extend %full-height;
 }
+.colunista-info {
+	padding: rem-calc(20);
+	background-color: #f1f1f1;
+	border-bottom: 1px solid #eaeaea;
+	margin-bottom: rem-calc(20);
+
+	figcaption {
+		padding-left: rem-calc(20);
+	}
+}
 
 @media #{$medium-up} {
 	.post {
 		figcaption {
 			padding-left: rem-calc(20);
+			&.no-th {
+				padding-left: 0;
+			}
 		}
 	}
 }

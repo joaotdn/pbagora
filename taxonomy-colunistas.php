@@ -1,5 +1,6 @@
 <?php
 get_header();
+$obj = get_queried_object();
 ?>
 <div  id="post-content" class="row">
     <div class="small-12 large-9 left">
@@ -13,7 +14,27 @@ get_header();
         </figure>
 
         <header class="divide-20 column">
-            <h3 class="divide-10 primary"><?php echo single_cat_title(); ?></h3>
+            <figure class="small-12 left colunista-info">
+                <?php
+                    $avatar = get_field('colunista_avatar',$obj);
+                    if($avatar):
+                ?>
+                <div class="small-2 medium-1 left">
+                    <img src="<?php echo $avatar; ?>" alt="">
+                </div>
+
+                <figcaption class="small-10 medium-11 left">
+                    <h3 class="divide-10 primary"><?php echo single_cat_title(); ?></h3>
+                    <p class="no-margin"><?php echo $obj->description; ?></p>
+                    <?php
+                        if(get_field('colunista_email',$obj)) echo "<p class='font-small no-margin'>(". get_field('colunista_email',$obj) .")</p>";
+                    ?>
+                </figcaption>
+                <?php
+                    endif;
+                ?>
+            </figure>
+            
             <nav id="share-post" class="left">
                 <ul class="inline-list no-margin">
                     <li>
@@ -40,17 +61,16 @@ get_header();
                     global $post;
                     $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.medio');
                     $th = (!empty($thumb[0])) ? $thumb[0] : '';
-                    $video = get_field('post_video',$post->ID);
             ?>
             <figure class="small-12 left post">
                 <?php if($th != ''): ?>
-                <a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left" data-thumb="<?php echo $th; ?>"></a>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left" data-thumb="<?php echo $th; ?>"></a>
                 <?php endif; ?>
                 
                 <figcaption class="small-12 medium-7 large-8 left <?php if($th == '') echo "no-th"; ?>">
                     <time class="font-small divide-10" pubdate><?php the_date('j \d\e F, Y'); ?> às <?php the_time('g:i a'); ?></time>
                     <h6 class="post-tag no-margin"><?php echo get_first_tag(); ?></h6>
-                    <h4 class="divide-10"><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
+                    <h4 class="divide-10"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
 
                     <nav id="share-post" class="left small-12 no-pl no-margin">
                         <ul class="inline-list no-margin">
@@ -69,13 +89,6 @@ get_header();
                         </ul>
                         <div class="divide-10"></div>
                     </nav>
-
-                    <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-                        <div class="flex-video">
-                            <?php echo $video; ?>
-                        </div>
-                        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-                    </div>
                 </figcaption>
             </figure>
             <?php

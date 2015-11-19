@@ -54,7 +54,7 @@ PBA_App.init = function() {
 
     main.showSearch();
     main.moMenu();
-    main.loadSections();
+    //main.loadSections();
 
     //main.videosCarousel();
     //main.popularCarousel();

@@ -46,7 +46,7 @@ get_header();
                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left" data-thumb="<?php echo $th; ?>"></a>
                 <?php endif; ?>
                 
-                <figcaption class="small-12 medium-7 large-8 left">
+                <figcaption class="small-12 medium-7 large-8 left <?php if($th == '') echo "no-th"; ?>">
                     <time class="font-small divide-10" pubdate><?php the_date('j \d\e F, Y'); ?> às <?php the_time('g:i a'); ?></time>
                     <h6 class="post-tag no-margin"><?php echo get_first_tag(); ?></h6>
                     <h4 class="divide-10"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
