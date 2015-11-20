@@ -45,6 +45,7 @@ get_header();
             <h3 class="divide-10"><?php the_title(); ?></h3>
 
             <time class="left font-small" pubdate><?php the_time('j \d\e F, Y'); ?> às <?php the_time('g:i a'); ?></time>
+            
             <nav id="share-post" class="right">
                 <ul class="inline-list">
                     <li>
@@ -61,6 +62,7 @@ get_header();
                     </li>
                 </ul>
             </nav>
+            
             <div class="h-line"></div>
         </header>
 

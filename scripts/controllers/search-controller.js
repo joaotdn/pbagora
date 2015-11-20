@@ -28,7 +28,7 @@ angular.module('PBAapp',['ngRoute'])
         };
 
         $scope.search = function(query) {
-            timer = setTimeout(searchKeyword(query), 300);
+            timer = setTimeout(searchKeyword(query), 100);
         };
     }]);
 

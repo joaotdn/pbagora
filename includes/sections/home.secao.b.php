@@ -36,7 +36,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 ?>
         <figure class="small-12 medium-4 columns medium-news">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block divide-20">
-                <img src="<?php echo $th; ?>" alt="<?php the_title(); ?>"/>
+                <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
             </a>
             <figcaption class="small-12 left">
                 <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>

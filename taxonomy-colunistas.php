@@ -35,7 +35,7 @@ $obj = get_queried_object();
                 ?>
             </figure>
             
-            <nav id="share-post" class="left">
+            <nav id="share-post" class="left no-pl no-margin">
                 <ul class="inline-list no-margin">
                     <li>
                         <span>Compartilhe</span>
@@ -64,7 +64,9 @@ $obj = get_queried_object();
             ?>
             <figure class="small-12 left post">
                 <?php if($th != ''): ?>
-                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left" data-thumb="<?php echo $th; ?>"></a>
+                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left">
+                    <img data-original="<?php echo $th; ?>" alt="" class="lazy small-12 left">
+                </a>
                 <?php endif; ?>
                 
                 <figcaption class="small-12 medium-7 large-8 left <?php if($th == '') echo "no-th"; ?>">

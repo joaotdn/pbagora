@@ -30,7 +30,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
     <figure class="small-12 medium-4 left small-news <?php if($th == '') echo "not-img"; ?>">
         <?php if($th != ''): ?>
         <a href="<?php the_permalink(); ?>" class="d-block small-4 medium-6 columns" title="<?php the_title(); ?>">
-            <img src="<?php echo $th; ?>" alt="<?php the_title(); ?>"/>
+            <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
         </a>
         <?php endif; ?>
 

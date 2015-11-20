@@ -26,7 +26,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 ?>
         <figure class="small-12 medium-4 columns medium-news">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block divide-20">
-                <img src="<?php echo $th; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb['2']; ?>" />
+                <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb['2']; ?>" class="lazy" />
             </a>
             <figcaption class="small-12 left">
                 <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
@@ -63,7 +63,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
     <figure class="small-12 medium-4 left small-news <?php if($th == '') echo "not-img"; ?>">
         <?php if($th != ''): ?>
         <a href="<?php the_permalink(); ?>" class="d-block small-4 medium-6 columns" title="<?php the_title(); ?>">
-            <img src="<?php echo $th; ?>" alt="<?php the_title(); ?>"/>
+            <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
         </a>
         <?php endif; ?>
 

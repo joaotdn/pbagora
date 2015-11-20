@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.0.9');
+define('THEME_VERSION', '1.1.2');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 
 class PBA_Main {
@@ -301,7 +301,7 @@ function getPageDescription() {
 
 function getThumbUrl($size) {
     global $post;
-    if(!$size) {
+    if(!$size || $size == null) {
         $size = 'full';
     }
     $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
@@ -336,12 +336,12 @@ function fb_opengraph() {
     <meta itemprop="description" content="<?php echo getPageDescription(); ?>">
     <?php if(is_home()): ?>
       <meta itemprop="image" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
-    <?php else: ?><meta itemprop="image" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+    <?php else: ?><meta itemprop="image" content="<?php getThumbUrl('full'); ?>"><?php endif; ?>
 
     <!-- Twitter Card data -->
     <?php if(is_home()): ?>
       <meta name="twitter:card" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
-    <?php else: ?><meta name="twitter:card" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+    <?php else: ?><meta name="twitter:card" content="<?php getThumbUrl('full'); ?>"><?php endif; ?>
     <meta name="twitter:site" content="@pbagora">
     <meta name="twitter:title" content="<?php echo $site_name; ?>">
     <meta name="twitter:description" content="<?php echo getPageDescription(); ?>">
@@ -349,7 +349,7 @@ function fb_opengraph() {
     <!-- Twitter summary card with large image must be at least 280x150px -->
     <?php if(is_home()): ?>
       <meta name="twitter:image:src" content="<?php echo $stylesheet_directory; ?>/screenshot.png">
-    <?php else: ?><meta name="twitter:image:src" content="<?php getThumbUrl(); ?>"><?php endif; ?>
+    <?php else: ?><meta name="twitter:image:src" content="<?php getThumbUrl('full'); ?>"><?php endif; ?>
 
     <!-- Open Graph data -->
     <meta property="og:title" content="<?php echo $site_name; ?>" />
@@ -357,7 +357,7 @@ function fb_opengraph() {
     <meta property="og:url" content="<?php echo $site_url; ?>" />
     <?php if(is_home()): ?>
       <meta property="og:image" content="<?php echo $stylesheet_directory; ?>/screenshot.png" />
-    <?php else: ?><meta property="og:image" content="<?php getThumbUrl(); ?>" /><?php endif; ?>
+    <?php else: ?><meta property="og:image" content="<?php getThumbUrl('full'); ?>" /><?php endif; ?>
     <meta property="og:description" content="<?php echo getPageDescription(); ?>" />
     <meta property="og:site_name" content="<?php echo $site_name; ?>" />
     
