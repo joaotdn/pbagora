@@ -13,8 +13,8 @@ get_header();
         </figure>
 
         <header class="divide-20 column">
-            <h3 class="divide-10 primary"><?php echo single_cat_title(); ?></h3>
-            <nav id="share-post" class="left no-pl no-margin">
+            <h1 class="divide-10 primary"><?php echo single_cat_title(); ?></h1>
+            <!--<nav id="share-post" class="left no-pl no-margin">
                 <ul class="inline-list no-margin">
                     <li>
                         <span>Compartilhe</span>
@@ -31,54 +31,83 @@ get_header();
                 </ul>
                 <div class="divide-10"></div>
             </nav>
-            <div class="h-line"></div>
+            <div class="h-line"></div>-->
         </header>
 
-        <nav id="content" class="small-12 columns">
+        <figure class="divide-20 column post-video d-table rel">
+<?php
+$exclude_arr = array();
+$args = array(
+    'posts_per_page' => 1,
+    'orderby' => 'date',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'destaque',
+            'field'    => 'slug',
+            'terms'    => 'destaque-video',
+        ),
+    ),
+);
+$the_query = new WP_Query( $args );
+
+if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
+    global $post;
+    $exclude_arr[] = $post->ID;
+    $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.grande');
+    $th = (!empty($thumb[0])) ? $thumb[0] : '';
+    $video = get_field('post_video',$post->ID);
+?>
+    <a href="#" class="d-block" data-reveal-id="video-<?php echo $post->ID; ?>">
+        <img data-original="<?php echo $th; ?>" alt="" class="small-12 left lazy">
+    </a>
+    
+    <div class="small-12 columns">
+        <figcaption class="small-12 abs">
+            <h3><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>" class="white"><?php the_title(); ?></a></h3>
+        </figcaption>
+    </div>
+
+    <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <div class="flex-video">
+            <?php echo $video; ?>
+        </div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+<?php
+    endwhile; wp_reset_postdata(); endif;
+?>           
+        </figure>
+
+        <nav id="content" class="small-12 left">
             <?php
                 while (have_posts()) : the_post();
                     global $post;
+
+                    if(in_array($post->ID, $exclude_arr))
+                        continue;
+
                     $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.medio');
                     $th = (!empty($thumb[0])) ? $thumb[0] : '';
                     $video = get_field('post_video',$post->ID);
             ?>
-            <figure class="small-12 left post">
-                <?php if($th != ''): ?>
-                 <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block small-12 medium-5 large-4 left">
-                    <img data-original="<?php echo $th; ?>" alt="" class="lazy small-12 left">
+            <figure class="small-12 medium-4 columns medium-news end">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-reveal-id="video-<?php echo $post->ID; ?>" class="d-block divide-20">
+                    <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
                 </a>
-                <?php endif; ?>
-                
-                <figcaption class="small-12 medium-7 large-8 left <?php if($th == '') echo "no-th"; ?>">
-                    <time class="font-small divide-10" pubdate><?php the_date('j \d\e F, Y'); ?> às <?php the_time('g:i a'); ?></time>
-                    <h6 class="post-tag no-margin"><?php echo get_first_tag(); ?></h6>
-                    <h4 class="divide-10"><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
-
-                    <nav id="share-post" class="left small-12 no-pl no-margin">
-                        <ul class="inline-list no-margin">
-                            <li>
-                                <span>Compartilhe</span>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-social-facebook"></a>
-                            </li>
-                            <li>
-                                <a href="whatsapp://send?text=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-whatsapp"></a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-twitter"></a>
-                            </li>
-                        </ul>
-                        <div class="divide-10"></div>
-                    </nav>
-
-                    <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-                        <div class="flex-video">
-                            <?php echo $video; ?>
-                        </div>
-                        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-                    </div>
+                <figcaption class="small-12 left">
+                    <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
+                    <h5><a href="<?php the_permalink(); ?>" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
                 </figcaption>
+                <div class="dot-border small-12 left">
+                    <div class="small-12 left"></div>
+                </div>
+
+                <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                    <div class="flex-video">
+                        <?php echo $video; ?>
+                    </div>
+                    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+                </div>
             </figure>
             <?php
                 endwhile;

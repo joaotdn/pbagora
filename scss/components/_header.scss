@@ -97,6 +97,7 @@ a.close-offcanvas {
   top: 0;
   left: 0;
   @extend %full-height;
+  overflow: hidden;
 
   visibility: hidden;
   opacity: 0;

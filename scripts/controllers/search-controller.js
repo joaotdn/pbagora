@@ -23,6 +23,7 @@ angular.module('PBAapp',['ngRoute'])
                 },
                 success: function(data) {
                     $('.the-results').html(data);
+                    $('.the-results').perfectScrollbar(); 
                 }
             });
         };

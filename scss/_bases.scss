@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  position: relative;
   &.search-mode {
     padding-top: rem-calc(91);
   }

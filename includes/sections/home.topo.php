@@ -50,7 +50,7 @@ if($posts):
 foreach ($posts as $post): setup_postdata( $post );
 global $post;
 ?>
-            <h6><a href="<?php the_permalink(); ?>" title=""><small class="primary d-iblock">&#9899;</small> <?php the_title(); ?></a></h6>
+            <h6><a href="<?php the_permalink(); ?>" title=""><span class="blue-dot"></span> <?php the_title(); ?></a></h6>
 <?php endforeach; endif; wp_reset_postdata(); ?>
         </aside>
 

@@ -68,6 +68,11 @@
   @extend .left;
   margin-bottom: rem-calc(10);
 }
+.the-post {
+  p {
+    color: #000 !important;
+  }
+}
 @media #{$small-only} {
   #share-post {
     float: left !important;

@@ -15,10 +15,11 @@ $.fn.getDataThumb = function(options) {
     });
 };
 $('*[data-thumb]').getDataThumb(); // data-thumb para esses elementos
-$('.the-results').perfectScrollbar(); 
+$('#mask-white').perfectScrollbar(); 
 $("img.lazy").lazyload({
     effect : "fadeIn"
 });
+$('#menu-offcanvas').perfectScrollbar();
 
 //Offcanvas menu
 var PBA_App = function() {};

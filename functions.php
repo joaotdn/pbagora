@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.1.2');
+define('THEME_VERSION', '1.1.5');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 
 class PBA_Main {
@@ -387,9 +387,12 @@ function pba_search_form() {
     $th = (!empty($thumb[0])) ? $thumb[0] : '';
 
   ?>
-  <figure class="divide-20">
-    <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
-    <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+  <figure class="small-12 left">
+    <figcaption class="small-12 left">
+      <time class="font-small divide-5" pubdate><?php the_time('j \d\e F, Y'); ?> às <?php the_time('g:i a'); ?></time>
+      <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
+      <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+    </figcaption>
   </figure>
   <?php
 

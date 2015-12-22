@@ -113,6 +113,9 @@
   padding-top: rem-calc(20);
   padding-bottom: rem-calc(20);
 }
+.full-height {
+  @extend %full-height;
+}
 
 //Comportameyos
 .d-table {
