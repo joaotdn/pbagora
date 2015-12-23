@@ -57,13 +57,13 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
     $th = (!empty($thumb[0])) ? $thumb[0] : '';
     $video = get_field('post_video',$post->ID);
 ?>
-    <a href="#" class="d-block" data-reveal-id="video-<?php echo $post->ID; ?>">
+    <a href="#" class="d-block rel" data-reveal-id="video-<?php echo $post->ID; ?>">
         <img data-original="<?php echo $th; ?>" alt="" class="small-12 left lazy">
     </a>
     
     <div class="small-12 columns">
         <figcaption class="small-12 abs">
-            <h3><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>" class="white"><?php the_title(); ?></a></h3>
+            <h3><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>" class="white"><span class="icon-play"></span> <?php the_title(); ?></a></h3>
         </figcaption>
     </div>
 
@@ -91,7 +91,12 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
                     $video = get_field('post_video',$post->ID);
             ?>
             <figure class="small-12 medium-4 columns medium-news end">
-                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-reveal-id="video-<?php echo $post->ID; ?>" class="d-block divide-20">
+                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" data-reveal-id="video-<?php echo $post->ID; ?>" class="d-block divide-20 rel">
+                    <span class="d-table small-12 abs inner-play">
+                        <span class="d-table-cell small-12 text-center">
+                            <h3 class="icon-play white"></h3>
+                        </span>
+                    </span>
                     <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
                 </a>
                 <figcaption class="small-12 left">

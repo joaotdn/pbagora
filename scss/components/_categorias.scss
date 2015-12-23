@@ -56,6 +56,11 @@
 		background-color: rgba(#000,.8);
 	}
 }
+.inner-play {
+	height: rem-calc(187);
+	top: 0;
+	left: 0;
+}
 
 @media #{$medium-up} {
 	.post {

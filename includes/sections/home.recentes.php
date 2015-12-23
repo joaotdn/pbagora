@@ -37,7 +37,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
         <figcaption class="<?php if($th == '') echo "small-12 d-table"; else echo "small-8 medium-6"; ?> columns">
             <?php if($th == '') echo "<div class=\"d-table-cell small-12\">"; ?>
             <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
-            <h6><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h6>
+            <h6><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php echo substr(get_the_title( $post->ID ), 0, 60); ?></a></h6>
             <?php if($th == '') echo "</div>"; ?>
         </figcaption>
 

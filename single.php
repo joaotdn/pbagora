@@ -46,6 +46,8 @@ get_header();
                     the_content();
                 endwhile; endif;
             ?>
+
+            
         </article>
 
         <footer id="comments" class="small-12 columns">

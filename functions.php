@@ -75,7 +75,7 @@ function plandd_acf_dir( $dir ) {
  * (custom meta post)
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
-//define( 'ACF_LITE' , true );
+define( 'ACF_LITE' , true );
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 if( function_exists('acf_add_options_page') ) {
   
@@ -399,4 +399,111 @@ function pba_search_form() {
   endwhile; wp_reset_postdata(); endif;
   
   exit();
+}
+
+//galeria do post
+add_filter('post_gallery', 'my_post_gallery', 10, 2);
+
+function my_post_gallery($output, $attr) {
+
+    global $post;
+
+    if (isset($attr['orderby'])) {
+
+        $attr['orderby'] = sanitize_sql_orderby($attr['orderby']);
+
+        if (!$attr['orderby'])
+
+            unset($attr['orderby']);
+
+    }
+
+    extract(shortcode_atts(array(
+
+        'order' => 'ASC',
+
+        'orderby' => 'menu_order ID',
+
+        'id' => $post->ID,
+
+        'itemtag' => 'dl',
+
+        'icontag' => 'dt',
+
+        'captiontag' => 'dd',
+
+        'columns' => 3,
+
+        'size' => 'thumbnail',
+
+        'include' => '',
+
+        'exclude' => ''
+
+    ), $attr));
+
+    $id = intval($id);
+
+    if ('RAND' == $order) $orderby = 'none';
+
+    if (!empty($include)) {
+
+        $include = preg_replace('/[^0-9,]+/', '', $include);
+
+        $_attachments = get_posts(array('include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby));
+
+        $attachments = array();
+
+        foreach ($_attachments as $key => $val) {
+
+            $attachments[$val->ID] = $_attachments[$key];
+
+        }
+
+    }
+
+    if (empty($attachments)) return '';
+
+    // Here's your actual output, you may customize it to your need
+    ob_start();
+    ?>
+    <nav id="post-gallery" class="small-12 left rel cycle-slideshow"
+      data-cycle-fx="scrollHorz"
+      data-cycle-timeout="0"
+      data-cycle-next=".next-pic"
+      data-cycle-prev=".prev-pic"
+      data-cycle-pager="#adv-custom-pager"
+      data-cycle-slides="> figure"
+      data-cycle-swipe="true"
+      data-cycle-swipe-fx="scrollHorz"
+    >
+    <?php
+      foreach ($attachments as $id => $attachment):
+        $thumb = wp_get_attachment_image_src($id, 'thumbnail');
+        $full = wp_get_attachment_image_src($id, 'full');
+    ?>
+        <figure class="small-12 full-height left d-iblock" data-thumb="<?php echo $full[0]; ?>" data-cycle-pager-template="<a href=#><img width=50 height=50 src=<?php echo $thumb[0]; ?>></a>"></figure>
+    <?php
+      endforeach;
+    ?>
+
+        <a href="#" title="Próximo" class="d-table abs white nav-gallery next-pic">
+            <span class="d-table-cell text-center">
+                <span class="icon-keyboard_arrow_left"></span>
+            </span>
+        </a>
+
+        <a href="#" title="Próximo" class="d-table abs white nav-gallery prev-pic">
+            <span class="d-table-cell text-center">
+                <span class="icon-navigate_next"></span>
+            </span>
+        </a>
+    </nav>
+
+    <div id="adv-custom-pager"></div>
+    <?php
+    $output = ob_get_contents();
+    ob_end_clean();
+
+    return $output;
 }

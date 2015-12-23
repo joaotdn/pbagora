@@ -137,7 +137,7 @@ foreach ($posts as $post): setup_postdata( $post );
                         <?php endif; ?>
                         <figcaption class="small-12 abs">
                             <h6 class="post-tag font-normal"><?php echo get_first_tag(); ?></h6>
-                            <h4 class="font-xlarge divide-5"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
+                            <h4 class="font-xlarge divide-20"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
                             <?php if($th == ''): ?>
                             <p class="font-small no-margin post-excerpt hide-for-medium-only"><?php the_excerpt(); ?></p>
                             <div class="divide-10 show-for-medium-down"></div>
@@ -189,7 +189,7 @@ foreach ($posts as $post): setup_postdata( $post );
                         <?php endif; ?>
                         <figcaption class="small-12 abs">
                             <h6 class="post-tag font-normal"><?php echo get_first_tag(); ?></h6>
-                            <h4 class="font-xlarge divide-5"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
+                            <h4 class="font-xlarge divide-20"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h4>
                             <?php if($th == ''): ?>
                                 <p class="font-small no-margin post-excerpt hide-for-medium-only"><?php the_excerpt(); ?></p>
                                 <div class="divide-10 show-for-medium-down"></div>

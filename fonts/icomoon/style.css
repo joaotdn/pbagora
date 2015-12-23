@@ -1,47 +1,57 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?hk2v1a');
-	src:url('fonts/icomoon.eot?hk2v1a#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?hk2v1a') format('truetype'),
-		url('fonts/icomoon.woff?hk2v1a') format('woff'),
-		url('fonts/icomoon.svg?hk2v1a#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:    url('fonts/icomoon.eot?lkfke6');
+    src:    url('fonts/icomoon.eot?lkfke6#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?lkfke6') format('truetype'),
+        url('fonts/icomoon.woff?lkfke6') format('woff'),
+        url('fonts/icomoon.svg?lkfke6#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-instagram:before {
-	content: "\e806";
+.icon-keyboard_arrow_left:before {
+    content: "\e901";
 }
-.icon-whatsapp:before {
-	content: "\e800";
+.icon-navigate_next:before {
+    content: "\e900";
+}
+.icon-close:before {
+    content: "\e807";
 }
 .icon-social-facebook:before {
-	content: "\e801";
+    content: "\e801";
+}
+.icon-instagram:before {
+    content: "\e806";
+}
+.icon-whatsapp:before {
+    content: "\e800";
 }
 .icon-twitter:before {
-	content: "\e802";
+    content: "\e802";
 }
 .icon-play:before {
-	content: "\e803";
+    content: "\e803";
 }
 .icon-search:before {
-	content: "\e804";
+    content: "\e804";
 }
 .icon-cloud:before {
-	content: "\e805";
+    content: "\e805";
 }
 
