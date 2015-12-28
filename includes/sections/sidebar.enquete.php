@@ -27,6 +27,8 @@
 
 <!-- publicidade -->
 <figure id="ads" class="divide-20 text-center">
-    <img src="http://gamejobs.com/files/virgingaming300x250.jpg" alt=""/>
+    <?php
+        pba_show_ads('ads_lateral_e','ads_lateral_e_img','ads_lateral_e_html');
+    ?>
 </figure>
 </section>

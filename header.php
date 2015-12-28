@@ -9,6 +9,7 @@
 <!doctype html>
 <html class="no-js" lang="pt-br" ng-app="PBAapp">
 <head>
+    <?php echo get_field('pba_analytics', 'option'); ?>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?php bloginfo('name'); ?> | <?php is_home()?bloginfo('description'):wp_title(''); ?></title>
@@ -130,3 +131,4 @@
             </div>
         </div>
     </header>
+    

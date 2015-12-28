@@ -2,7 +2,9 @@
 <!-- mais lidas -->
 <nav id="popular" class="small-12 medium-6 large-12 columns">
 <figure id="ads" class="divide-20 left text-center">
-    <img src="http://gamejobs.com/files/virgingaming300x250.jpg" alt=""/>
+    <?php
+        pba_show_ads('ads_lateral','ads_lateral_img','ads_lateral_html');
+    ?>
 </figure>
 
     <div class="no-bullet small-12 left section-block bg-dark popular-container">

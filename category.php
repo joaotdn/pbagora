@@ -36,38 +36,69 @@ get_header();
         </header>
 
         <section class="divide-20">
-        <nav class="small-12 left" role="navigation">
-            <?php
-             $exclude_arr = array();
-             $args = array(
-                'posts_per_page' => 3,
-                'orderby' => 'date',
-                'cat' => $obj->ID
-            );
-            $the_query = new WP_Query( $args );
+            <nav class="small-12 left" role="navigation">
+                <?php
+                    $i = 0;
+                    $e = array();
+                    while (have_posts()) : the_post();
+                        global $post;
+                        $i++;
+                        if(4 == $i) break;
+                        $e[] = $post->ID;
+                        $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.medio');
+                        $th = (!empty($thumb[0])) ? $thumb[0] : '';
+                ?>
+                        <figure class="small-12 medium-4 columns medium-news">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block divide-20">
+                                <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb['2']; ?>" class="lazy" />
+                            </a>
+                            <figcaption class="small-12 left">
+                                <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
+                                <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
+                            </figcaption>
+                            <div class="dot-border small-12 left">
+                                <div class="small-12 left"></div>
+                            </div>
+                        </figure>
+                <?php
+                    endwhile; wp_reset_postdata();
+                ?>
+            </nav>
+        </section>
 
-            if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_query->the_post();
-                global $post;
-                $exclude_arr[] = $post->ID;
-                $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.editoria');
-                $th = (!empty($thumb[0])) ? $thumb[0] : '';
-            ?>
-                    <figure class="small-12 medium-4 columns medium-news">
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block divide-20">
-                            <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" width="<?php echo $thumb[1]; ?>" height="<?php echo $thumb['2']; ?>" class="lazy" />
-                        </a>
-                        <figcaption class="small-12 left">
-                            <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
-                            <h5><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h5>
-                        </figcaption>
-                        <div class="dot-border small-12 left">
-                            <div class="small-12 left"></div>
-                        </div>
-                    </figure>
-            <?php
-                endwhile; wp_reset_postdata(); endif;
-            ?>
-        </nav>
+        <section class="divide-20">
+            <nav class="small-12 left" role="navigation"> 
+                <?php
+                    $i = 0;
+                    $e = array();
+                    while (have_posts()) : the_post();
+                        global $post;
+                        $i++;
+                        if(4 == $i) break;
+                        $e[] = $post->ID;
+                        $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.medio');
+                        $th = (!empty($thumb[0])) ? $thumb[0] : '';
+                ?>
+                <figure class="small-12 medium-4 left small-news <?php if($th == '') echo "not-img"; ?>">
+                    <?php if($th != ''): ?>
+                    <a href="<?php the_permalink(); ?>" class="d-block small-4 medium-6 columns" title="<?php the_title(); ?>">
+                        <img data-original="<?php echo $th; ?>" alt="<?php the_title(); ?>" class="lazy" />
+                    </a>
+                    <?php endif; ?>
+
+                    <figcaption class="<?php if($th == '') echo "small-12 d-table"; else echo "small-8 medium-6"; ?> columns">
+                        <?php if($th == '') echo "<div class=\"left small-12\">"; ?>
+                        <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
+                        <h6><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h6>
+                        <?php if($th == '') echo "</div>"; ?>
+                    </figcaption>
+
+                    <div class="divide-20"></div>
+                </figure>
+                <?php
+                    endwhile; wp_reset_postdata();
+                ?>
+            </nav>
         </section>
 
         <nav id="content" class="small-12 columns">
@@ -75,7 +106,7 @@ get_header();
                 while (have_posts()) : the_post();
                     global $post;
 
-                    if(in_array($post->ID, $exclude_arr))
+                    if(in_array($post->ID, $e))
                         continue;
 
                     $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.medio');

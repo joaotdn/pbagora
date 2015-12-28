@@ -111,6 +111,39 @@ if( function_exists('acf_add_options_page') ) {
     'parent_slug' => 'opcoes-gerais',
   ));
 
+  acf_add_options_sub_page(array(
+    'page_title'  => 'Gerencie as publicidades do portal',
+    'menu_title'  => 'Publicidades',
+    'parent_slug' => 'opcoes-gerais',
+  ));
+
+}
+
+/**
+ * Função genérica para exibir publicidades
+ */
+function pba_show_ads($ads_imgs, $img_key, $ads_html) {
+  $ads = get_field($ads_imgs, 'option');
+  if(is_array($ads))
+    shuffle($ads);
+  $html = get_field($ads_html, 'option');
+  $i = 0;
+
+
+  if($html == "") {
+    if($ads) {
+      foreach ($ads as $img) {
+        if(1 == $i) break;
+        echo '<img src="'. $img[$img_key] .'">';
+        $i++;
+      }
+    } else {
+      echo '';
+    }
+  }
+  else {
+    echo $html;
+  }
 }
 
 /**

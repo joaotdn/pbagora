@@ -1,7 +1,9 @@
 <!-- publicidade -->
 <figure id="ads" class="divide-20 column text-center">
     <div class="small-12 left">
-        <img src="https://lh4.ggpht.com/1Rw1DEbRB87sJ3sdx1g8yMrmx-Lt-VgYqhYolXv_y0hAZxbqoA1HAw1qT-JLk68-dHEL-QHmAA=w300" alt=""/>
+        <?php
+            pba_show_ads('ads_interna_lateral','ads_interna_lateral_img','ads_interna_lateral_html');
+        ?>
     </div>
 </figure>
 

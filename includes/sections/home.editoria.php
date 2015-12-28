@@ -68,7 +68,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
         <?php endif; ?>
 
         <figcaption class="<?php if($th == '') echo "small-12 d-table"; else echo "small-8 medium-6"; ?> columns">
-            <?php if($th == '') echo "<div class=\"d-table-cell small-12\">"; ?>
+            <?php if($th == '') echo "<div class=\"left small-12\">"; ?>
             <h6 class="post-tag divide-5"><?php echo get_first_tag(); ?></h6>
             <h6><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h6>
             <?php if($th == '') echo "</div>"; ?>
@@ -85,7 +85,9 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
     <!-- publicidade -->
     <figure id="ads" class="small-12 columns big-ads text-center">
         <div class="small-12 left">
-            <img src="http://www.shakeout.org/2008/downloads/ShakeOut_BannerAds_GetReady_728x90_v3.gif" alt=""/>
+            <?php
+                pba_show_ads('ads_home_b','ads_home_b_img','ads_home_b_html');
+            ?>
         </div>
     </figure>
 </section>

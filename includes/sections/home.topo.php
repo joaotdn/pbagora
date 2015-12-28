@@ -59,7 +59,9 @@ global $post;
             <header class="small-12 left">
                 <p class="font-small divide-10 text-right text-up"><strong>Publicidade</strong></p>
             </header>
-            <img src="http://www.eiseverywhere.com/image.php?acc=14&id=83558" alt=""/>
+            <?php
+                pba_show_ads('ads_topo','ads_topo_img','ads_topo_html');
+            ?>
         </figure>
 
     </article>
@@ -146,9 +148,9 @@ foreach ($posts as $post): setup_postdata( $post );
                             <p class="no-margin small-12 left font-light text-up font-small">
                                 <span class="left">Compartilhe</span>
                                 <span class="right font-large ">
-                                   <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-social-facebook font-xlarge white"></a>
-                                    <a href="whatsapp://send?text=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-whatsapp font-xlarge white"></a>
-                                    <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" title="<?php the_title(); ?>" target="_blank" class="icon-twitter font-xlarge white"></a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-social-facebook"></a>
+                                    <a href="whatsapp://send?text=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-whatsapp"></a>
+                                    <a href="https://twitter.com/home?status=<?php the_permalink(); ?>" target="_blank" class="d-iblock icon-twitter"></a>
                                 </span>
                             </p>
 

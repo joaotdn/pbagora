@@ -6,11 +6,12 @@
  */
 $section = get_field('home_secao_c', 'option');
 if($section):
+    $category_link = get_category_link( $section->term_id );
 ?>
 <!-- secao.c -->
 <section class="small-12 left">
     <header class="divide-20 columns">
-        <h2 class="primary"><?php echo $section->name; ?></h2>
+        <h2><a href="<?php echo $category_link; ?>" class="primary"><?php echo $section->name; ?></a></h2>
     </header>
 
     <nav class="small-12 left special-news">
@@ -32,6 +33,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
     global $post;
     $thumb = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'destaque.editoria');
     $th = (!empty($thumb[0])) ? $thumb[0] : '';
+    if($th ==  '') continue;
 ?>
         <figure class="small-12 medium-4 columns">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="d-block rel small-12 left">

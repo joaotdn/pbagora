@@ -2,10 +2,12 @@
 <section id="offers-box" class="small-12  medium-6 large-12 columns cars">
 <!-- publicidade -->
 <figure id="ads" class="divide-20 text-center">
-    <img src="http://icarusart.net/images/300x250.jpg" alt=""/>
+    <?php
+        pba_show_ads('ads_lateral_d','ads_lateral_d_img','ads_lateral_d_html');
+    ?>
 </figure>
 
-<div class="divide-20">
+<!--<div class="divide-20">
     <header class="small-12 left">
         <h3 class="lh-1 no-margin">Ofertas de carro</h3>
     </header>
@@ -48,5 +50,5 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
 
         <div id="cars-carousel" class="small-12 left show-for-medium-down"></div>
     </nav>
-</div>
+</div>-->
 </section>

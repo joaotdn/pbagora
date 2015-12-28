@@ -2,12 +2,16 @@
 <nav id="popular" class="small-12 medium-6 large-12 columns">
     <!-- publicidade -->
     <figure id="ads" class="divide-20 text-center">
-        <img src="http://www.brandpopulace.com/stg/bpop_iac_13/images/mhphys_300x250.jpg" alt=""/>
+        <?php
+            pba_show_ads('ads_lateral_b','ads_lateral_b_img','ads_lateral_b_html');
+        ?>
     </figure>
 
     <!-- publicidade -->
     <figure id="ads" class="divide-20 text-center">
-        <img src="http://www.eiseverywhere.com/image.php?acc=14&id=83558" alt=""/>
+        <?php
+            pba_show_ads('ads_lateral_c','ads_lateral_c_img','ads_lateral_c_html');
+        ?>
     </figure>
 
     <div class="no-bullet small-12 left section-block bg-dark popular-container bloggers-container">

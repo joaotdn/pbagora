@@ -53,7 +53,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
                 </figcaption>
             </figure>
 
-            <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <div id="video-<?php echo $post->ID; ?>" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
                 <div class="flex-video">
                     <?php echo $video; ?>
                 </div>
@@ -98,7 +98,7 @@ if ( $the_query->have_posts() ) :  while ( $the_query->have_posts() ) : $the_que
                     <h5><a href="#" data-reveal-id="video-<?php echo $post->ID; ?>" title="<?php the_title(); ?>" class="white"><?php the_title(); ?></a></h5>
                 </figcaption>
 
-                <div id="video-<?php echo $post->ID; ?>" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+                <div id="video-<?php echo $post->ID; ?>" class="reveal-modal small" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
                     <div class="flex-video">
                         <?php echo $video; ?>
                     </div>

@@ -4,6 +4,16 @@
         <figure class="small-12 large-3 small-text-center large-text-left left columns">
             <a href="<?php home_url(); ?>" title="Página principal" class="d-iblock icon-logo-footer"></a>
             <div class="divide-20"></div>
+            
+            <figcaption class="divide-20">
+                <?php
+                    $fale = get_page_by_title('Fale conosco');
+                    $quem = get_page_by_title('Quem somos');
+                ?>
+                <p class="no-margin font-small"><a href="<?php echo get_page_link( $quem->ID ); ?>" class="white text-up">Quem somos</a></p>
+                <p class="no-margin font-small"><a href="<?php echo get_page_link( $fale->ID ); ?>" class="white text-up">Fale conosco</a></p>
+            </figcaption>
+
             <figcaption class="divide-20">
                         <span class="font-small lh-1">
                             <span class="d-block">&copy; 2015 PBAgora</span>

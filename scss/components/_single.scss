@@ -85,6 +85,10 @@
   background-color: #333;
   z-index: 999;
 
+  &:hover {
+    width: rem-calc(46);
+  }
+
   span[class^="icon"] {
     font-size: rem-calc(34);
   }
