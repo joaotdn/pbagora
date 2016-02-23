@@ -1,5 +1,5 @@
 <?php
-define('THEME_VERSION', '1.1.5');
+define('THEME_VERSION', '1.1.12');
 define('THEME_ICON', get_stylesheet_directory_uri() . '/images/icon.png');
 
 class PBA_Main {
@@ -76,6 +76,7 @@ function plandd_acf_dir( $dir ) {
  */
 include_once( get_stylesheet_directory() . '/includes/acf-pro/acf.php' );
 define( 'ACF_LITE' , true );
+
 //include_once( get_stylesheet_directory() . '/includes/acf/preconfig.php' );
 if( function_exists('acf_add_options_page') ) {
   
@@ -118,6 +119,11 @@ if( function_exists('acf_add_options_page') ) {
   ));
 
 }
+
+/**
+ * Auto lightbox nas postagens
+ */
+//include_once( get_stylesheet_directory() . '/includes/auto-thickbox/auto-thickbox.php' );
 
 /**
  * Função genérica para exibir publicidades

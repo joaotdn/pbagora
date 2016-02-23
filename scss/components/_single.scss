@@ -22,6 +22,7 @@
     }
     &:not(:first-child) {
       height: rem-calc(29);
+      font-size: rem-calc(16);
       a {
         line-height: rem-calc(20);
       }
@@ -120,6 +121,24 @@
     &.cycle-pager-active, &:hover {
       opacity: 1;
     }
+  }
+}
+
+//Wordpress
+.wp-caption {
+  @extend .text-center;
+  padding: rem-calc(10);
+  background-color: #f1f1f1;
+
+  a {
+    @extend .d-iblock;
+  }
+  p {
+    margin: 0;
+    font-size: rem-calc(12);
+  }
+  img {
+    margin-bottom: rem-calc(10);
   }
 }
 
